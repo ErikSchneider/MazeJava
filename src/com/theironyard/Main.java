@@ -83,10 +83,23 @@ public class Main {
         }
     }
 
+    static boolean createMaze(Room[][] rooms, Room room) {
+        room.wasVisited = true;
+        Room nextRoom = randomNeighbor(rooms, room.row, room.col);
+        if (nextRoom == null) {
+            return false;
+        }
+
+        tearDownWall(room, nextRoom);
+        while (createMaze(rooms, nextRoom));
+
+        return true;
+    }
 
 
     public static void main(String[] args) {
         Room[][] rooms = createRooms();
+        createMaze(rooms, rooms[0][0]);
         for (Room[] row : rooms) {
             System.out.print(" _");
         }
