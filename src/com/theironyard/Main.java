@@ -23,12 +23,12 @@ public class Main {
 
         //get top room
         if (row > 0) {
-            neighbors.add(rooms[row-1][col]);
+            neighbors.add(rooms[row -1][col]);
         }
 
         //get bottom room
         if (row < SIZE - 1) {
-            neighbors.add(rooms[row+1][col]);
+            neighbors.add(rooms[row +1][col]);
         }
 
         //get left room
@@ -37,7 +37,7 @@ public class Main {
         }
 
         //get right room
-        if (col < 0) {
+        if (col < SIZE - 1) {
             neighbors.add(rooms [row][col +1]);
         }
 
